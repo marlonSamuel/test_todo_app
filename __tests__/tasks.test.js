@@ -4,6 +4,19 @@ const express = require('express');
 const app = require('../server'); // Asegúrate de exportar la app en server.js
 
 describe('Tasks API', () => {
+    let server;
+
+    beforeAll((done) => {
+        server = app.listen(8000, () => {
+            console.log('Server running on http://localhost:8000');
+            done();
+        });
+    });
+
+    afterAll((done) => {
+        server.close(done);
+    });
+
     it('should create a new task', async() => {
         const res = await request(app)
             .post('/tasks')
