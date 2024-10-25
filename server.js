@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 8000;
 // Middleware para parsear JSON
 app.use(express.json());
 
-// Array para almacenar las tareas
+// Array para almacenar todas las tareas
 let tasks = [];
 
 // Ruta para obtener todas las tareas
